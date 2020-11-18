@@ -68,6 +68,19 @@ class LinkedList
     end
     'nil'
   end
+
+  def to_s
+    list_str = ''
+    current_node = head
+    i = 0
+    while i < size
+      list_str << "( #{current_node.value} ) -> "
+      list_str << 'nil' if current_node.next_node.nil?
+      current_node = current_node.next_node
+      i += 1
+    end
+    list_str
+  end
 end
 
 list = LinkedList.new
@@ -80,3 +93,4 @@ p list.find(12)
 p list.find(100)
 p list.find(42)
 p list.find(33)
+p list.to_s
