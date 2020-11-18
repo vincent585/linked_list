@@ -56,6 +56,18 @@ class LinkedList
     end
     false
   end
+
+  def find(value)
+    current_node = head
+    i = 0
+    while i < size
+      return i if current_node.value == value
+
+      current_node = current_node.next_node
+      i += 1
+    end
+    'nil'
+  end
 end
 
 list = LinkedList.new
@@ -64,3 +76,7 @@ list.append(100)
 list.prepend(12)
 p list.contains?(12)
 p list.contains?(69)
+p list.find(12)
+p list.find(100)
+p list.find(42)
+p list.find(33)
