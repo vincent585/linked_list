@@ -94,8 +94,18 @@ class LinkedList
     end
   end
 
-  def remove_at(value, index)
+  def remove_at(index)
+    return 'nil' unless index.between?(0, size - 1)
 
+    if index.zero?
+      @head = @head.next_node
+      @size -= 1
+    elsif at(index) == @tail
+      pop
+    else
+      at(index - 1).next_node = at(index + 1)
+      @size -= 1
+    end
   end
 end
 
@@ -111,4 +121,6 @@ p list.find(42)
 p list.find(33)
 p list.to_s
 list.insert_at(16, 1)
+p list.to_s
+list.remove_at(0)
 p list.to_s
