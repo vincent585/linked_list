@@ -81,6 +81,22 @@ class LinkedList
     end
     list_str
   end
+
+  def insert_at(value, index)
+    return 'nil' if index.negative? || index > size
+
+    if index.zero?
+      prepend(value)
+    else
+      new_node = Node.new(value, at(index))
+      at(index - 1).next_node = new_node
+      @size += 1
+    end
+  end
+
+  def remove_at(value, index)
+
+  end
 end
 
 list = LinkedList.new
@@ -93,4 +109,6 @@ p list.find(12)
 p list.find(100)
 p list.find(42)
 p list.find(33)
+p list.to_s
+list.insert_at(16, 1)
 p list.to_s
