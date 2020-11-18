@@ -41,7 +41,9 @@ class LinkedList
   def pop
     return 'nil' if size.zero?
 
-
+    @tail = size > 1 ? at(size - 2) : @head
+    @tail.next_node = nil
+    @size -= 1
   end
 end
 
